@@ -1,15 +1,30 @@
 
-window.addEventListener('load', function() {
+(function() {
     const loader = document.querySelector('.loader-wrapper');
+    
+    if (!loader) return;
+    
 
-    setTimeout(function() {
+    function hideLoader() {
         loader.classList.add('fade-out');
-
         setTimeout(function() {
             loader.style.display = 'none';
         }, 500);
-    }, 2000);
-});
+    }
+    
+
+    window.addEventListener('load', function() {
+        setTimeout(hideLoader, 1500);
+    });
+    
+
+    setTimeout(hideLoader, 5000);
+    
+
+    if (document.readyState === 'complete') {
+        setTimeout(hideLoader, 1500);
+    }
+})();
 
 function revealTextOnScroll() {
     const revealElements = document.querySelectorAll('.reveal-text');
