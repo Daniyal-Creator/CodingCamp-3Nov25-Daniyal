@@ -11,16 +11,6 @@ window.addEventListener('load', function() {
     }, 2000);
 });
 
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const parallaxLayers = document.querySelectorAll('.parallax-layer');
-    
-    parallaxLayers.forEach((layer, index) => {
-        const speed = (index + 1) * 0.3;
-        layer.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
-
 function revealTextOnScroll() {
     const revealElements = document.querySelectorAll('.reveal-text');
     
