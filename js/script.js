@@ -1,3 +1,55 @@
+
+const textArray = [
+    "Creative Developer & Designer",
+    "Passionate About Creating Elegant Digital Experiences",
+    "Building Beautiful & Functional Websites",
+    "Turning Ideas Into Reality"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
+
+function typeText() {
+    const currentText = textArray[textIndex];
+    const typedTextElement = document.getElementById('typed-text');
+    
+    if (!isDeleting) {
+
+        typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        
+        if (charIndex === currentText.length) {
+
+            isDeleting = true;
+            typingSpeed = 2000;
+        } else {
+            typingSpeed = 100;
+        }
+    } else {
+
+        typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+        
+        if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % textArray.length;
+            typingSpeed = 500;
+        }
+    }
+    
+    setTimeout(typeText, typingSpeed);
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(typeText, 1000); 
+});
+
+
+       
        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
