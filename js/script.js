@@ -1,29 +1,50 @@
-
+// Loading Animation - Multiple Failsafe Version
 (function() {
     const loader = document.querySelector('.loader-wrapper');
     
-    if (!loader) return;
+    if (!loader) {
+        console.log('Loader not found');
+        return;
+    }
     
-
+    let loaderHidden = false;
+    
     function hideLoader() {
+        if (loaderHidden) return;
+        loaderHidden = true;
+        
+        console.log('Hiding loader...');
         loader.classList.add('fade-out');
+        
         setTimeout(function() {
             loader.style.display = 'none';
+            console.log('Loader hidden');
         }, 500);
     }
     
-
+    // Method 1: Window load event
     window.addEventListener('load', function() {
-        setTimeout(hideLoader, 500); // Lebih cepat
+        console.log('Window loaded');
+        setTimeout(hideLoader, 800);
     });
     
-
-    setTimeout(hideLoader, 500); // Lebih cepat
+    // Method 2: DOMContentLoaded (faster)
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded');
+        setTimeout(hideLoader, 800);
+    });
     
-
-    if (document.readyState === 'complete') {
-        setTimeout(hideLoader, 500); // Lebih cepat
+    // Method 3: Immediate check if already loaded
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        console.log('Already loaded');
+        setTimeout(hideLoader, 800);
     }
+    
+    // Method 4: FORCE hide after 3 seconds NO MATTER WHAT
+    setTimeout(function() {
+        console.log('Force hiding loader');
+        hideLoader();
+    }, 3000);
 })();
 
 function revealTextOnScroll() {
