@@ -14,15 +14,15 @@
     
 
     window.addEventListener('load', function() {
-        setTimeout(hideLoader, 1500);
+        setTimeout(hideLoader, 500); // Lebih cepat
     });
     
 
-    setTimeout(hideLoader, 5000);
+    setTimeout(hideLoader, 500); // Lebih cepat
     
 
     if (document.readyState === 'complete') {
-        setTimeout(hideLoader, 1500);
+        setTimeout(hideLoader, 500); // Lebih cepat
     }
 })();
 
