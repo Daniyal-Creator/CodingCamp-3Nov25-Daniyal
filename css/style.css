@@ -281,32 +281,41 @@ section {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 20px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     color: #ffffff;
     min-width: 200px;
+    position: relative;
+    transform: translateY(0) scale(1);
 }
 
 .social-item:hover {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
     border-color: #d4af37;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .social-icon {
     font-size: 48px;
     color: #d4af37;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-item:hover .social-icon {
+    transform: scale(1.2);
 }
 
 .social-name {
     font-size: 18px;
     letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
-/* Footer */
+.social-item:hover .social-name {
+    color: #d4af37;
+}
+
 footer {
     text-align: center;
     padding: 40px 0;
@@ -316,12 +325,12 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Smooth Scroll */
+
 html {
     scroll-behavior: smooth;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .hero-content {
         flex-direction: column;
