@@ -206,7 +206,6 @@ section {
     color: #ffffff;
 }
 
-/* Hobbies Section */
 .hobbies-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -264,4 +263,90 @@ section {
     line-height: 1.8;
     color: #cccccc;
     letter-spacing: 0.5px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #ffffff;
+    min-width: 200px;
+}
+
+.social-item:hover {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
+}
+
+.social-icon {
+    font-size: 48px;
+    color: #d4af37;
+}
+
+.social-name {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    color: #888888;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .name-animation {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    nav ul {
+        gap: 20px;
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
 }
